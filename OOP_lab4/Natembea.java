@@ -54,8 +54,8 @@ public class Natembea implements FileOperations, ReportGenerator {
     public void saveToFile(String filename) {
         try (FileWriter fw = new FileWriter(filename)) {
             for (Patient p : patients.values()) {
-                fw.write(p.getPatientId() + "," + p.getName() + "," +
-                         p.getEmail() + "," + p.getPhone() + "\n");
+                fw.write(p.getPatientId() + "," + p.getName() + "," + "," + p.getAge() +
+                         p.getEmail() + p.getGender() + "," + p.getPhone() + "," +"\n");
             }
         } catch (Exception e) {
             System.out.println("Error saving data: " + e.getMessage());
@@ -74,7 +74,8 @@ public class Natembea implements FileOperations, ReportGenerator {
                 String email = parts[4];
                 String phone = parts[5];
 
-                Patient p = new Patient(id, name, age, gender, email, phone);
+                Patient p = new Patient(id, name, age, email, gender, phone);
+
                 addPatient(p);
             }
         } catch (Exception e) {
