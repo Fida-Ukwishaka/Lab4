@@ -1,39 +1,52 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
+import java.util.TreeMap;
 
-public class Patient implements Recordable {
+public class Patient extends Person {
     private int id;
-    private String name;
-    private ArrayList<String> history = new ArrayList<>();
+    private ArrayList<String> MedicalHistory; 
+    private TreeMap<Date, Appointment> Appointments;
 
-    public Patient(int id, String name){
+    public Patient(int id, String name, int age){
+        super(name, age);
         this.id = id;
-        this.name = name;
+        this.MedicalHistory = new ArrayList<>();
+        this.Appointments = new TreeMap<>();
     }
+
+     public int getID(){
+        return id;
+    }
+    public ArrayList<String> getMedicalHistory(){
+        return MedicalHistory;
+    }
+    public TreeMap<Date, Appointment> getAppointments() {
+        return Appointments;
+    }
+
+    public void addMedicalRecord(String record) {
+        MedicalHistory.add(record);
+    }
+     public void addAppointment(Date date, Appointment appt) {
+        Appointments.put(date, appt);
+    }
+
+    @Override
+    public String getDetails() {
+        return "Patient: " + getName() + " (ID: " + id + ")";
+    }
+}
+/*  
+
+   
 
     public Patient(){
         // for looping from file
     }
 
-    public int getID(){
-        return id;
-    }
-    public String getName(){
-        return name;
-    }
-    public ArrayList<String> getHistory(){
-        return history;
-    }
 
-    public void addHistory(String entry){
-        history.add(entry);
-    }
+    
 
-    @Override
-    public String serialize() {
-        String joinedHistory = String.join(";", history);
-        return id + "|" + name + "|" + joinedHistory;
-    }
 
     @Override
     public void deserialize(String data){
@@ -52,3 +65,4 @@ public class Patient implements Recordable {
     }
     
 }
+*/
