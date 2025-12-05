@@ -54,7 +54,7 @@ public class Natembea implements FileOperations, ReportGenerator {
     public void saveToFile(String filename) {
         try (FileWriter fw = new FileWriter(filename)) {
             for (Patient p : patients.values()) {
-                fw.write(p.getPatientId() + "," + p.getName() + "," + "," + p.getAge() +
+                fw.write(p.getPatientId() + "," + p.getName() + ","  + p.getAge() +  "," +
                          p.getEmail() + p.getGender() + "," + p.getPhone() + "," +"\n");
             }
         } catch (Exception e) {
