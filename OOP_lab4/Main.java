@@ -13,7 +13,8 @@ public class Main {
             System.out.println("3. Schedule Appointment");
             System.out.println("4. Generate Report");
             System.out.println("5. Save Data");
-            System.out.println("6. Load Data");
+            System.out.println("6. Save Data");
+            System.out.println("7. Load Data");
             System.out.println("0. Exit");
             System.out.print("Enter option: ");
 
@@ -86,7 +87,9 @@ public class Main {
 
                 case 5 -> cms.saveToFile("patients.txt");
 
-                case 6 -> cms.loadFromFile("patients.txt");
+                case 6 -> cms.saveToFile("appointments.txt");
+
+                case 7 -> cms.loadFromFile("patients.txt");
 
                 case 0 -> {
                     System.out.println("Have A Nice Day!");
