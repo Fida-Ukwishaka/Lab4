@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+
+
 public class Patient extends Person implements FileOperations {
     private int patientId;
     private ArrayList<MedicalRecord> medicalHistory;
